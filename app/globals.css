@@ -1,0 +1,341 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Updated color palette for shoe store - coral/cream/navy theme */
+/* Vibrant high-performance shoe brand palette - "Pulse Neon" */
+:root {
+  --darkcinzabg: #050505;
+  --stride-dark: #080808;
+  --stride-darkbk: #0d0d0d;
+  --stride-light: #ffffff;
+  --stride-accent: #d6ff00;
+  /* Volt Green */
+  --stride-accent-secondary: #00f5ff;
+  /* Cyber Cyan */
+  --stride-coral: #00f5ff;
+  /* Replacing coral with Cyan for uniqueness */
+  --stride-navy: #121212;
+  --stride-cream: #ffffff;
+  --stride-teal: #ff0055;
+  /* Neon Magenta/Red */
+  --stride-text-dark: #050505;
+  --stride-text-light: #ffffff;
+  --verdetitulo: #d6ff00;
+  --background: #080808;
+  --foreground: #ffffff;
+  --card: #0d0d0d;
+  --card-foreground: #ffffff;
+  --popover: #0d0d0d;
+  --popover-foreground: #ffffff;
+  --primary: #d6ff00;
+  --primary-foreground: #000000;
+  --secondary: #00f5ff;
+  --secondary-foreground: #000000;
+  --muted: #1a1a1a;
+  --muted-foreground: #a1a1aa;
+  --accent: #d6ff00;
+  --accent-foreground: #000000;
+  --destructive: #ff0055;
+  --destructive-foreground: #ffffff;
+  --border: #1a1a1a;
+  --input: #1a1a1a;
+  --ring: #d6ff00;
+  --chart-1: #d6ff00;
+  --chart-2: #00f5ff;
+  --chart-3: #ff0055;
+  --chart-4: #ffffff;
+  --chart-5: #000000;
+  --radius: 0.75rem;
+  --sidebar: #050505;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #d6ff00;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #00f5ff;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border: #1a1a1a;
+  --sidebar-ring: #d6ff00;
+
+  /* Legacy color mappings for backwards compatibility */
+  --lorenzo-dark: var(--stride-dark);
+  --lorenzo-darkbk: var(--stride-darkbk);
+  --lorenzo-light: var(--stride-light);
+  --lorenzo-accent: var(--stride-accent);
+  --lorenzo-text-dark: var(--stride-text-dark);
+  --lorenzo-text-light: var(--stride-text-light);
+}
+
+/* Adding font-face definitions for local fonts Brier and Mona Sans */
+@font-face {
+  font-family: "Brier";
+  src: url("/fonts/Brier-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/fonts/MonaSans-Variable.woff2") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+  font-stretch: 75% 125%;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --font-sans: var(--font-roboto), "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --font-serif: var(--font-libre-baskerville), "Georgia", serif;
+  --font-gochi: "Gochi Hand", cursive;
+  --font-oswald: var(--font-oswald);
+  --font-brier: "Brier", sans-serif;
+  --font-mona: "Mona Sans", sans-serif;
+
+  --color-verdetitulo: var(--verdetitulo);
+  --color-darkcinzabg: var(--darkcinzabg);
+
+  /* Updated theme color mappings */
+  --color-stride-dark: var(--stride-dark);
+  --color-stride-light: var(--stride-light);
+  --color-stride-accent: var(--stride-accent);
+  --color-stride-accent-secondary: var(--stride-accent-secondary);
+  --color-stride-coral: var(--stride-coral);
+  --color-stride-navy: var(--stride-navy);
+  --color-stride-cream: var(--stride-cream);
+  --color-stride-text-dark: var(--stride-text-dark);
+  --color-stride-text-light: var(--stride-text-light);
+
+  /* Legacy mappings */
+  --color-lorenzo-dark: var(--stride-dark);
+  --color-lorenzo-light: var(--stride-light);
+  --color-lorenzo-accent: var(--stride-accent);
+  --color-lorenzo-text-dark: var(--stride-text-dark);
+  --color-lorenzo-text-light: var(--stride-text-light);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply uppercase tracking-wide font-bold;
+    letter-spacing: 0.05em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .text-chrome {
+    background: linear-gradient(to bottom,
+        #ffffff 0%,
+        #ffffff 38%,
+        #00feff 40%,
+        #d6ff00 45%,
+        #ffffff 48%,
+        #ffffff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.2));
+  }
+
+  .bg-glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  .noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999999;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  .transition-smooth {
+    transition: all 0.3s ease;
+  }
+
+  .text-glow-accent {
+    -webkit-text-stroke: 1.5px var(--stride-accent);
+    text-shadow: 0 0 15px rgba(214, 255, 0, 0.4);
+    paint-order: stroke fill;
+  }
+
+  .text-glow-secondary {
+    -webkit-text-stroke: 1.5px var(--stride-accent-secondary);
+    text-shadow: 0 0 15px rgba(0, 245, 255, 0.4);
+    paint-order: stroke fill;
+  }
+}
+
+/* Updated accent color */
+.simteste {
+  color: #ff6b6b;
+  font-size: 1050px;
+  line-height: 600px;
+}
+
+.mask-gradient {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex !important;
+  white-space: nowrap !important;
+  width: max-content;
+  will-change: transform;
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

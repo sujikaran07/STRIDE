@@ -6,7 +6,7 @@ export const storeProducts = [
         name: "Pegasus Premium",
         price: "$160.00",
         category: "RUNNING",
-        image: "/7/NIKE+PEGASUS+PREMIUM (1).jpg",
+        image: "/7/nike-pegasus-premium-1.jpg",
         tag: "NEW ARRIVAL"
     },
     {
@@ -14,7 +14,7 @@ export const storeProducts = [
         name: "Pegasus Premium Night",
         price: "$160.00",
         category: "RUNNING",
-        image: "/7/NIKE+PEGASUS+PREMIUM (2).jpg",
+        image: "/7/nike-pegasus-premium-2.jpg",
         tag: ""
     },
     {
@@ -22,7 +22,7 @@ export const storeProducts = [
         name: "Pegasus Premium Day",
         price: "$160.00",
         category: "RUNNING",
-        image: "/7/NIKE+PEGASUS+PREMIUM (3).jpg",
+        image: "/7/nike-pegasus-premium-3.jpg",
         tag: ""
     },
     {
@@ -30,7 +30,7 @@ export const storeProducts = [
         name: "Pegasus Premium Volt",
         price: "$160.00",
         category: "RUNNING",
-        image: "/7/NIKE+PEGASUS+PREMIUM (4).jpg",
+        image: "/7/nike-pegasus-premium-4.jpg",
         tag: ""
     },
     {
@@ -38,7 +38,7 @@ export const storeProducts = [
         name: "Pegasus Premium Gold",
         price: "$160.00",
         category: "RUNNING",
-        image: "/7/NIKE+PEGASUS+PREMIUM (5).jpg",
+        image: "/7/nike-pegasus-premium-5.jpg",
         tag: ""
     },
     {
@@ -46,7 +46,7 @@ export const storeProducts = [
         name: "Pegasus Premium Silver",
         price: "$160.00",
         category: "RUNNING",
-        image: "/7/NIKE+PEGASUS+PREMIUM (6).jpg",
+        image: "/7/nike-pegasus-premium-6.jpg",
         tag: ""
     },
 

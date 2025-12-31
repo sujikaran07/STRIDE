@@ -5,22 +5,22 @@ import Image from "next/image"
 import { useState, useEffect } from "react"
 
 const socialImages = [
-  "/7/NIKE+PEGASUS+PREMIUM.jpg",
-  "/7/NIKE+PEGASUS+PREMIUM (1).jpg",
-  "/7/NIKE+PEGASUS+PREMIUM (2).jpg",
-  "/7/NIKE+PEGASUS+PREMIUM (3).jpg",
-  "/7/NIKE+PEGASUS+PREMIUM (4).jpg",
-  "/7/NIKE+PEGASUS+PREMIUM (5).jpg",
-  "/7/NIKE+PEGASUS+PREMIUM (6).jpg",
+  "/7/nike-pegasus-premium.jpg",
+  "/7/nike-pegasus-premium-1.jpg",
+  "/7/nike-pegasus-premium-2.jpg",
+  "/7/nike-pegasus-premium-3.jpg",
+  "/7/nike-pegasus-premium-4.jpg",
+  "/7/nike-pegasus-premium-5.jpg",
+  "/7/nike-pegasus-premium-6.jpg",
 ]
 
 const shoeIcons = [
-  "/7/NIKE+PEGASUS+PREMIUM (1).jpg",
-  "/7/NIKE+PEGASUS+PREMIUM (2).jpg",
-  "/7/NIKE+PEGASUS+PREMIUM (3).jpg",
-  "/7/NIKE+PEGASUS+PREMIUM (4).jpg",
-  "/7/NIKE+PEGASUS+PREMIUM (5).jpg",
-  "/7/NIKE+PEGASUS+PREMIUM (6).jpg",
+  "/7/nike-pegasus-premium-1.jpg",
+  "/7/nike-pegasus-premium-2.jpg",
+  "/7/nike-pegasus-premium-3.jpg",
+  "/7/nike-pegasus-premium-4.jpg",
+  "/7/nike-pegasus-premium-5.jpg",
+  "/7/nike-pegasus-premium-6.jpg",
 ]
 
 export default function SocialSection() {

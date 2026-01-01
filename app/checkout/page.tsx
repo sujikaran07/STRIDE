@@ -7,6 +7,24 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, Check, CreditCard, Truck, User, ShieldCheck, Lock, ChevronRight, Mail, MapPin } from "lucide-react"
 
+// Define InputField outside the component to prevent re-creation on render
+const InputField = ({ name, placeholder, icon: Icon, type = "text", full = false, value, onChange, error }: any) => (
+    <div className={`relative group ${full ? 'col-span-2' : ''}`}>
+        <div className={`absolute inset-y-0 left-4 flex items-center pointer-events-none transition-colors ${error ? 'text-red-500' : 'text-white/30 group-focus-within:text-stride-accent'}`}>
+            <Icon className="w-5 h-5" />
+        </div>
+        <input
+            required
+            type={type}
+            name={name}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}
+            className={`w-full bg-[#111] border ${error ? 'border-red-500' : 'border-white/10'} rounded-xl py-4 pl-12 pr-4 text-white placeholder:text-white/20 font-bold tracking-wide outline-none focus:border-stride-accent focus:shadow-[0_0_15px_rgba(214,255,0,0.1)] transition-all`}
+        />
+    </div>
+)
+
 export default function CheckoutPage() {
     const { items, totalPrice, clearCart } = useCart()
     const [step, setStep] = useState(1) // 1: Info, 2: Shipping, 3: Payment
@@ -80,22 +98,7 @@ export default function CheckoutPage() {
 
     // --- Components for Reusability & Consistency ---
 
-    const InputField = ({ name, placeholder, icon: Icon, type = "text", full = false }: any) => (
-        <div className={`relative group ${full ? 'col-span-2' : ''}`}>
-            <div className={`absolute inset-y-0 left-4 flex items-center pointer-events-none transition-colors ${errors[name] ? 'text-red-500' : 'text-white/30 group-focus-within:text-stride-accent'}`}>
-                <Icon className="w-5 h-5" />
-            </div>
-            <input
-                required
-                type={type}
-                name={name}
-                value={formData[name as keyof typeof formData]}
-                onChange={handleInputChange}
-                placeholder={placeholder}
-                className={`w-full bg-[#111] border ${errors[name] ? 'border-red-500' : 'border-white/10'} rounded-xl py-4 pl-12 pr-4 text-white placeholder:text-white/20 font-bold tracking-wide outline-none focus:border-stride-accent focus:shadow-[0_0_15px_rgba(214,255,0,0.1)] transition-all`}
-            />
-        </div>
-    )
+
 
     if (items.length === 0 && !completed) {
         return (
@@ -211,10 +214,32 @@ export default function CheckoutPage() {
                                             Contact Info
                                         </h2>
                                         <div className="space-y-6">
-                                            <InputField name="email" type="email" placeholder="Email Address" icon={Mail} />
+                                            <InputField
+                                                name="email"
+                                                type="email"
+                                                placeholder="Email Address"
+                                                icon={Mail}
+                                                value={formData.email}
+                                                onChange={handleInputChange}
+                                                error={errors.email}
+                                            />
                                             <div className="grid grid-cols-2 gap-6">
-                                                <InputField name="firstName" placeholder="First Name" icon={User} />
-                                                <InputField name="lastName" placeholder="Last Name" icon={User} />
+                                                <InputField
+                                                    name="firstName"
+                                                    placeholder="First Name"
+                                                    icon={User}
+                                                    value={formData.firstName}
+                                                    onChange={handleInputChange}
+                                                    error={errors.firstName}
+                                                />
+                                                <InputField
+                                                    name="lastName"
+                                                    placeholder="Last Name"
+                                                    icon={User}
+                                                    value={formData.lastName}
+                                                    onChange={handleInputChange}
+                                                    error={errors.lastName}
+                                                />
                                             </div>
                                         </div>
                                     </div>
@@ -237,12 +262,40 @@ export default function CheckoutPage() {
                                             Shipping Details
                                         </h2>
                                         <div className="space-y-6">
-                                            <InputField name="address" placeholder="Street Address" icon={MapPin} />
+                                            <InputField
+                                                name="address"
+                                                placeholder="Street Address"
+                                                icon={MapPin}
+                                                value={formData.address}
+                                                onChange={handleInputChange}
+                                                error={errors.address}
+                                            />
                                             <div className="grid grid-cols-2 gap-6">
-                                                <InputField name="city" placeholder="City" icon={MapPin} />
-                                                <InputField name="postalCode" placeholder="Postal Code" icon={MapPin} />
+                                                <InputField
+                                                    name="city"
+                                                    placeholder="City"
+                                                    icon={MapPin}
+                                                    value={formData.city}
+                                                    onChange={handleInputChange}
+                                                    error={errors.city}
+                                                />
+                                                <InputField
+                                                    name="postalCode"
+                                                    placeholder="Postal Code"
+                                                    icon={MapPin}
+                                                    value={formData.postalCode}
+                                                    onChange={handleInputChange}
+                                                    error={errors.postalCode}
+                                                />
                                             </div>
-                                            <InputField name="country" placeholder="Country" icon={MapPin} />
+                                            <InputField
+                                                name="country"
+                                                placeholder="Country"
+                                                icon={MapPin}
+                                                value={formData.country}
+                                                onChange={handleInputChange}
+                                                error={errors.country}
+                                            />
                                         </div>
                                     </div>
                                 </motion.div>
